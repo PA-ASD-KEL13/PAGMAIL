@@ -1,14 +1,9 @@
 import os,time,pwinput
 
-admin = {
-    "admin": ['bagus', 'ilham', 'gilang'],
-    "passwordmin" : ['5678', '1234', '4321']
-}
-
-pembeli = {
-    "username": ["ilham", "gilang", "bagus"],
-    "password": ["1234", "5678", "8765"],
-}
+admin = 'me'
+pw = 'him'
+user = []
+pw1 = []
 
 class Gmail:
     def __init__(self, dari, kepada, subjek, tulis):
@@ -25,7 +20,7 @@ class Gmail:
         print("Tulis email : ", self.tulis)
         print("========================================")
 
-class Input:
+class Mengisi:
     def __init__(self):
         self.head = None
         self.tail = None
@@ -47,7 +42,10 @@ class Input:
                 self.tail.next = mail
                 self.tail = mail
 
-            self.history.append(f"Dari {dari}, Kepada: {kepada}")
+            self.history.append("===============================")
+            self.history.append(f"Dari : {dari}")
+            self.history.append(f"Kepada : {kepada}")
+            self.history.append("===============================")
 
     def newdel(self):
         while True:
@@ -87,14 +85,13 @@ class Input:
             temp.display()
             temp = temp.next
 
-Email = Input()
+Email = Mengisi()
 
 while True:
         try:
             nama = input("Enter your username : ")
             pw = pwinput.pwinput(prompt="Enter your password : ")
-            idx = pembeli.get("username").index(nama)
-            if nama == pembeli.get("username")[idx] and pw == pembeli.get("password")[idx]:
+            if nama == admin and pw == pw:
                 print("Succesfully Logged in")
                 Email.add()
                 Email.show()
